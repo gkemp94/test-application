@@ -25,9 +25,7 @@ con.connect((err) => {
 })
 
 app.get('*', (req, res) => {
-
-  res.send({ err, connected: true })
-
+  res.send({ error, connected: true })
 });
 
 app.listen(PORT, () => {
