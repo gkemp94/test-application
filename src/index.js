@@ -16,16 +16,21 @@ const PORT = process.env.PORT || 8080;
 let error;
 let connected = false;
 
+con.connect((err) => {
+  if(err) {
+    error = err;
+  } else {
+    connected = true;
+  }
+})
 
 app.get('*', (req, res) => {
   let a;
   a = con.connect((err) => {
     if (err) {
       res.send({ err });
-      con.end()
     } else {
-      res.send({ connected: true });
-      con.end();
+      res.send({ connected: true })
     }
   })
 });
