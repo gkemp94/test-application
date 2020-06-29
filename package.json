@@ -24,7 +24,8 @@
     "sqlite3": "latest"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "George Kemp",
+    "email": "georgekemp94@gmail.com"
   },
   "strapi": {
     "uuid": "dee42d12-f7c2-445e-91b2-73f634fecb75"
