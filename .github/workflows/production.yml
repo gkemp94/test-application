@@ -15,20 +15,22 @@ jobs:
       - name: Checkout Source Code
         uses: actions/checkout@v2
 
-      - name: Configure Workflow
-        id: configure
-        run: |
-          PACKAGE_NAME=$(cat package.json | grep name | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
-          DB_CREDENTIALS=$(aws secretsmanager get-secret-value --secret-id RDSSecret-qdMPuntkfQqF --query SecretString --region us-east-1)
-          echo "$PACKAGE_NAME"
-          echo ::set-output name=ServiceName::$PACKAGE_NAME
-        
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
+          
+      - name: Configure Workflow
+        id: configure
+        run: |
+          PACKAGE_NAME=$(cat package.json | grep name | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
+          DB_CREDENTIALS=$(aws secretsmanager get-secret-value --secret-id RDSSecret-qdMPuntkfQqF --query SecretString)
+          echo "$PACKAGE_NAME"
+          echo ::set-output name=ServiceName::$PACKAGE_NAME
+        
+
 
       - name: Login to Amazon ECR
         id: login-ecr
