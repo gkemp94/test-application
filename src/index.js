@@ -18,7 +18,7 @@ let connected = false;
 
 con.connect((err) => {
   if(err) {
-    error = err.message;
+    error = err;
   } else {
     connected = true;
   }
