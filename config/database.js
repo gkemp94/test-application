@@ -6,8 +6,8 @@ module.exports = ({ env }) => {
       connections: {
         default: {
           connector: "bookshelf",
-          client: "mysql",
           settings: {
+            client: "mysql",
             host, 
             port,
             username, 
