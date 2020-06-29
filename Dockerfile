@@ -1,13 +1,18 @@
-FROM node:12-alpine
+FROM strapi/base
 
-WORKDIR /home/app
+WORKDIR /strapi-app
 
-COPY package*.json ./
+COPY ./package.json ./
+COPY ./yarn.lock ./
 
-RUN npm install
+RUN yarn install
 
 COPY . .
 
-EXPOSE 3000
+ENV NODE_ENV production
 
-CMD ["npm", "run", "start"]
+RUN yarn build
+
+EXPOSE 1337
+
+CMD ["yarn", "start"]
