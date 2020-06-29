@@ -24,7 +24,8 @@ app.get('*', (req, res) => {
       res.send({ err });
       con.end()
     } else {
-      res.send({ connected: true })
+      res.send({ connected: true });
+      con.end();
     }
   })
 });
