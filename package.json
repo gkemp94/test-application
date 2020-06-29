@@ -1,0 +1,18 @@
+{
+  "name": "test-application",
+  "version": "1.0.0",
+  "description": "Test Application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/index.js"
+  },
+  "keywords": [],
+  "author": {
+    "name": "George Kemp",
+    "email": "georgekemp94@gmail.com"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
