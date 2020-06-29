@@ -1,6 +1,6 @@
 module.exports = ({ env }) => {
   if (env("NODE_ENV") === "production") {
-    const { host, password, username, port } = JSON.parse(env("DB_CREDENTIALS"));
+    const { host, password, username, port } = JSON.parse(env("DB_CREDENTIALS", '{}'));
     return {
       defaultConnection: "default",
       connections: {
