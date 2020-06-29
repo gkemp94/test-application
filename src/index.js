@@ -25,7 +25,12 @@ con.connect((err) => {
 })
 
 app.get('*', (req, res) => {
-  res.send({ url: req.url, env: process.env, connected, error });
+  res.send({ test: {
+    host,
+    password, 
+    user: username,
+    port
+  }, url: req.url, env: process.env, connected, error });
 });
 
 app.listen(PORT, () => {
