@@ -1,10 +1,31 @@
 const express = require('express');
+const mysql = require('mysql');
+const { DB_CREDENTIALS  } = process.env;
+
+const { host, password, username, port } = JSON.parse(DB_CREDENTIALS);
+
+const con = mysql.createConnection({
+  host,
+  password, 
+  user: username,
+  port
+});
 
 const app = express();
 const PORT = process.env.PORT || 8080;
+let error;
+let connected = false;
+
+con.connect((err) => {
+  if(err) {
+    error = err.message;
+  } else {
+    connected = true;
+  }
+})
 
 app.get('*', (req, res) => {
-  res.send({ url: req.url, env: process.env });
+  res.send({ url: req.url, env: process.env, connected, error });
 });
 
 app.listen(PORT, () => {
