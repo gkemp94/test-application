@@ -3,7 +3,6 @@ FROM strapi/base
 WORKDIR /strapi-app
 
 COPY ./package.json ./
-COPY ./yarn.lock ./
 
 RUN yarn install
 
