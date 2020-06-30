@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 const fs = require('fs');
 
-const { username, password, host, port } = JSON.parse(fs.readFileSync('./scripts/creds.json', 'utf8'));
+const { username, password, host, port } = JSON.parse(fs.readFileSync('./scripts/credentials.json', 'utf8'));
 const { DB_NAME } = process.env;
 const con = mysql.createConnection({
   user: username,
