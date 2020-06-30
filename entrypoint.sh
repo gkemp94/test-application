@@ -1,3 +1,3 @@
 #!/bin/bash
 
-node ./scipts/createDatabase.js && yarn start
+node ./scripts/createDatabase.js && yarn start
