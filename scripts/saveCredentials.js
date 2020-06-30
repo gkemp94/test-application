@@ -1,5 +1,5 @@
 const fs = require('fs');
 
-const { DB_CREDENTIALS } = proceess.env;
+const { DB_CREDENTIALS } = process.env;
 
 fs.writeFileSync('./scripts/credentials.json', DB_CREDENTIALS);
