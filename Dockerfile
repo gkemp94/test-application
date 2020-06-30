@@ -14,4 +14,4 @@ RUN yarn build
 
 EXPOSE 1337
 
-ENTRYPOINT [ "yarn", "start" ]
+CMD [ "yarn", "start" ]
