@@ -30,8 +30,6 @@ jobs:
           echo "$PACKAGE_NAME"
           echo ::set-output name=ServiceName::$PACKAGE_NAME
         
-
-
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
