@@ -7,7 +7,7 @@ module.exports = ({ env }) => {
         default: {
           connector: "bookshelf",
           settings: {
-            client: "mysql",
+            client: "postgres",
             host, 
             port,
             username, 
