@@ -12,7 +12,7 @@ module.exports = ({ env }) => {
             port,
             username, 
             password,
-            database: 'test-db'
+            database: 'strapi'
           },
         },
       },
